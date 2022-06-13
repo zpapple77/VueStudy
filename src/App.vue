@@ -1,22 +1,19 @@
 <template>
   <div>
-    <!-- 2.把值赋予到标签 -->
-    <h1>{{msg}}</h1>
-    <h2>{{obj.name}}</h2>
-    <h3>{{age>18?"成年":"未成年"}}</h3>
+    <!-- 2.值->标签原生属性上 -->
+    <!-- 语法：v-bind：原生属性名="vue变量" -->
+     <a v-bind:href="url">点击去掘金</a>
+     <!-- 语法：：原生属性名="vue变量" -->
+     <img :src="imgUrl" >
   </div>
 </template>
 
 <script>
 export default {
-  //1.变量在data函数return的对象上
   data(){
     return{
-      msg:'hello,zhang',
-      obj:{
-        name:'小vue',
-        age:5
-      }
+      url:'https://juejin.cn/',
+      imgUrl:"https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/e08da34488b114bd4c665ba2fa520a31.svg"
     }
   }
 }
