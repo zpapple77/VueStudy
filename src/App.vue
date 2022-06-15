@@ -1,24 +1,39 @@
 <template>
   <div>
-    <!-- 2.值->标签原生属性上 -->
-    <!-- 语法：v-bind：原生属性名="vue变量" -->
-     <a v-bind:href="url">点击去掘金</a>
-     <!-- 语法：：原生属性名="vue变量" -->
-     <img :src="imgUrl" >
+    <p>购买商品数量：{{ count }}</p>
+
+    <!-- 1.绑定事件
+  语法：v-on：事件名="代码" -->
+    <button v-on:click="count = count++">加一</button>
+    <!-- 语法：v-on：事件名="methods里函数名" -->
+    <button v-on:click="sub">减一</button>
+    <!-- 语法：v-on：事件名="methods里函数名(值)" -->
+    <button v-on:click="add(5)">加五</button>
+    <!-- 语法：@事件名="methods里函数名" -->
+    <button @click="addFunc(5)">加五</button>
   </div>
 </template>
 
 <script>
 export default {
-  data(){
-    return{
-      url:'https://juejin.cn/',
-      imgUrl:"https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/e08da34488b114bd4c665ba2fa520a31.svg"
+  data() {
+    return {
+      count: 1,
+    }
+  },
+  methods: {
+    sub() {
+      this.count--;
+    }
+    ,
+    add(num) {
+      this.count += num;
+    },
+    addFunc(num) {
+      this.count += num;
     }
   }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
